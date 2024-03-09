@@ -166,4 +166,8 @@ export default FeedbackItem;
    };
    This will display the item.id whenever the button is clicked
 
-- Problem: The items to be deleted is not here in the FeedbackItem component, they are situation in App.jsx
+## vid 23: Adding an id with UUID
+
+npm i uuid
+import { v4 as uuidv4 } from "uuid";
+Inside your add item function: newFeedback.id = uuidv4();
