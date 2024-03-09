@@ -120,3 +120,50 @@ return (
 
 * Note: Could also just have done :
   feedback: PropTypes.array
+
+## vid 17:
+
+DELETING A FEEDBACK POST:
+
+- To use a specific font you can include the cdn in your public/html file or you can use the react-icon package:
+  npm i react-icons
+  includes material and bootstrap as well
+  we are looking for font-awesome
+
+import { FaTimes } from "react-icons/fa";
+import PropTypes from "prop-types";
+import Card from "./shared/Card";
+
+function FeedbackItem({ item }) {
+return (
+<Card>
+
+<div className="num-display">{item.rating}</div>
+<button className="close">
+<FaTimes color="purple" />
+</button>
+<div className="text-display">{item.text}</div>
+</Card>
+);
+}
+
+FeedbackItem.propTypes = {
+item: PropTypes.object.isRequired,
+};
+
+export default FeedbackItem;
+
+- Setting a delete event:
+
+1. You can set it to a named function or do it straight inline with your event
+   <button onClick={() => console.log(item.id)}
+2. Or you ccould pass a property with an arrow function to a named function:
+   <button onClick={() => handleClick(item.id)} ...
+   </button>
+   with a separate named function:
+   const handleClick = (id) => {
+   console.log(item.id);
+   };
+   This will display the item.id whenever the button is clicked
+
+- Problem: The items to be deleted is not here in the FeedbackItem component, they are situation in App.jsx
