@@ -68,4 +68,55 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # feedback-app
+
+## vid 16: Conditional Styling
+
+You can set your styling for your Card component with
+a ternary operator like this:
+
+function Card({ children, reverse }) {
+
+  <!-- return <div className={`card ${reverse && "reverse"}`}>{children}</div>; -->
+
+return (
+
+<div className="card" style={{ backgroundColor: reverse ? "rgba(0,0,0,0.4)" : "#fff", color: reverse ? "#fff" : "#000" }}>
+{children}
+</div>
+);
+}
+- Your FeebackItem would have a prop on it for reverse={true} to show the dark reversed theme:
+    <Card reverse={true}>
+      <div className="num-display">{item.rating}</div>
+      <div className="text-display">{item.text}</div>
+    </Card>
+
+- To toggle between the two themes you would need to set a button somewhere for setting the reverse prop to either true or false
+- You can delete the class reverse in your css file because you are now using a prop to set the styling conditionally
+- One can also delete the reverse prop in your FeedbackItem component and set it to your chosen theme in a default setting in your Card component
+- You can also set your PropTypes to check that your variable types continues being set correctly
+  Card.propTypes = {
+  children: PropTypes.node.isRequired,
+  reverse: PropTypes.bool,
+  };
+- Remember to import:
+  import PropTypes from "prop-types";
+- In FeedbackItem:
+  FeedbackItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  };
+- In FeedbackList:
+  FeedbackList.propTypes = {
+  feedback: PropTypes.arrayOf(
+  PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  })
+  ),
+  };
+
+* Note: Could also just have done :
+  feedback: PropTypes.array
