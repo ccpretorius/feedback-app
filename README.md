@@ -171,3 +171,41 @@ export default FeedbackItem;
 npm i uuid
 import { v4 as uuidv4 } from "uuid";
 Inside your add item function: newFeedback.id = uuidv4();
+
+## vid 24: Adding animation effects
+
+npm i framer-motion@4.1.17
+
+## ROUTER
+
+npm i react-router-dom
+
+- if a component is going to be on its own page then it is custom to create a separate page for it
+- import your page into the App component where you are going to specify the routes
+  import AboutPage from "./pages/AboutPage.jsx";
+- import { BrowserRouter as Router, Route } from "react-router-dom";
+- wrap your jsx inside your App return statement inside Router
+  return (
+  <Router>
+  <Header />
+  <div className="container">
+  <FeedbackForm handleAdd={addFeedback} />
+  <FeedbackStats feedback={feedback} />
+  <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+  </div>
+  </Router>
+  );
+  }
+- Bring in the route with the path and component
+  return (
+  <Router>
+  <Header />
+  <div className="container">
+  <FeedbackForm handleAdd={addFeedback} />
+  <FeedbackStats feedback={feedback} />
+  <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+  </div>
+  <Route path='/about' component={AboutPage} />
+  </Router>
+  );
+  }
