@@ -209,3 +209,13 @@ npm i react-router-dom
   </Router>
   );
   }
+
+## DEPLOY TO NETLIFY
+
+- build your production build: npm run build
+- it will create a folder in your project called build
+- to serve the production build to localhost you can install "server" and then serve the build package via it
+- npm i -g serve
+  You might need to do "sudo np, i -g serve"
+- to serve what is in the static build folder run:
+  serve -s build
