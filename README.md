@@ -219,3 +219,27 @@ npm i react-router-dom
   You might need to do "sudo np, i -g serve"
 - to serve what is in the static build folder run:
   serve -s build
+  If you deploy through github it is not even necessary to run this command as it is built in when you repository gets served
+
+## CREATING A SERVER - Json-server
+
+1. install locally: npm i json-server
+2. create a run script in package.json for the file that you want to be watched and change the default port 3000 to 5000:
+   "server": "json-server --watch db.json --port 5000"
+3. Create db.json in your root folder
+4. npm run server
+5. You can used postman to get, post and delete to your database now (easier than just using the browser)
+6. For POST the Body Content-Type is application/json.
+7. The body would be raw and set like this in json format:
+   {
+   "rating": "9",
+   "text": "Here we go again"
+   }
+
+The server terminal will now be watching
+Concurrently you need to run your react terminal
+
+You can combine this in one command with the package concurrently
+
+- install: npm i concurrently
+- Add to package.json script: "dev": "concurrently \"npm run server\" \"npm start\""
