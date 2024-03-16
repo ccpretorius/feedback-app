@@ -14,6 +14,16 @@
       "id": 3,
       "text": "This feedback item 3 coming from the backend",
       "rating": 8
+    },
+    {
+      "id": 4,
+      "text": "This is a new POST after cleaning everything",
+      "rating": 5
+    },
+    {
+      "id": "736a",
+      "text": "Lets try a last one no 5",
+      "rating": 10
     }
   ]
 }
