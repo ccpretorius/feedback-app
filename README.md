@@ -243,3 +243,15 @@ You can combine this in one command with the package concurrently
 
 - install: npm i concurrently
 - Add to package.json script: "dev": "concurrently \"npm run server\" \"npm start\""
+
+## SETTING A PROXY
+
+- One can set a proxy for the url in the http calls so that one does not have to repeat the long line of code every time one do an http call
+- One can shorten this http GET request:
+  1. fetch("http://localhost:5001/feedback")
+  2. "proxy": "http:..localhost:5001",
+  3. fetch("/feedback")
+- Once one deployes the project, the proxy will be replaced by the correct backend details
+
+* NOTE: Since I have run a build on this project I incurr CORS issues and the screen does not render
+  To fix this i could not use a proxy or the asyn await. The normal fetch with .then catch blocks seems to circumvent the CORS issues

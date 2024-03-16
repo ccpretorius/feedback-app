@@ -29,7 +29,7 @@ export const FeedbackProvider = ({ children }) => {
   // };
   // Simplified fetch feedback without async
   const fetchFeedback = () => {
-    fetch("http://localhost:5001/feedback")
+    fetch("http://localhost:5001/feedback?_sort=id&_order=desc")
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched data:", data);
@@ -71,7 +71,6 @@ export const FeedbackProvider = ({ children }) => {
       value={{
         feedback: feedback, //could be just feedback
         feedbackEdit,
-        isLoading,
         deleteFeedback,
         addFeedback,
         editFeedback,
