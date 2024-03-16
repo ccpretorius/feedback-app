@@ -255,3 +255,4 @@ You can combine this in one command with the package concurrently
 
 * NOTE: Since I have run a build on this project I incurr CORS issues and the screen does not render
   To fix this i could not use a proxy or the asyn await. The normal fetch with .then catch blocks seems to circumvent the CORS issues
+# feedback-app-2
